@@ -16,7 +16,7 @@ cd task-diary
 
 Se non hai già Truffle installato, installalo globalmente:
 
-```Copy code
+```
 npm install -g truffle
 ```
 
@@ -45,7 +45,8 @@ module.exports = {
 
 Truffle fornisce una rete di sviluppo integrata che può essere avviata con il seguente comando:
 
-```truffle develop
+```
+truffle develop
 ```
 
 
@@ -63,4 +64,48 @@ Distribuisci i tuoi contratti sulla rete di sviluppo locale:
 
 ```
 truffle migrate --network development
+```
+
+
+## Interazione con la Blockchain
+Puoi utilizzare Truffle Console per interagire con il contratto distribuito. Ecco alcuni esempi di comandi:
+
+### Aprire Truffle Console
+
+Se stai già utilizzando truffle develop, la console sarà aperta automaticamente. In caso contrario, puoi aprire una nuova console:
+
+```
+truffle console --network development
+```
+
+### Ottenere l'Istanza del Contratto
+
+```
+let instance = await TaskDiary.deployed();
+```
+
+### Creare un Nuovo Task
+
+```
+await instance.createTask("Complete blockchain project");
+```
+
+### Recuperare un Task
+
+```
+let task = await instance.tasks(1);
+console.log(task);
+```
+
+### Spuntare un Task
+
+```
+await instance.toggleTask(1);
+```
+
+### Verificare il Cambiamento di Stato
+
+```
+task = await instance.tasks(1);
+console.log(task);
 ```
