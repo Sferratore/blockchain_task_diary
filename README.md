@@ -1,27 +1,28 @@
 # TaskDiary Smart Contract
-Questo progetto implementa un semplice diario di task su Ethereum, permettendo di creare e gestire task (marcarli come completati o meno).
+This project implements a simple task diary on Ethereum, allowing users to create and manage tasks (marking them as completed or not).
 
-## Requisiti
+## Requirements
 - Truffle
 
+## Project Installation
 
-## Installazione del Progetto
-### Clonare il Repository
+### Clone the Repository
 ```
-git clone <URL_DEL_REPOSITORY>
+git clone <REPOSITORY_URL>
 cd task-diary
 ```
 
-### Installare Truffle
+### Install Truffle
 
-Se non hai già Truffle installato, installalo globalmente:
+If you don't have Truffle installed yet, install it globally:
 
 ```
 npm install -g truffle
 ```
 
-### Configurare il File truffle-config.js
-Configura il file truffle-config.js per utilizzare la rete di sviluppo locale fornita da Truffle:
+### Configure truffle-config.js
+
+Set up the `truffle-config.js` file to use the local development network provided by Truffle:
 
 ```
 module.exports = {
@@ -40,70 +41,68 @@ module.exports = {
 };
 ```
 
+### Start Truffle Development Network
 
-### Avviare la Rete di Sviluppo di Truffle
-
-Truffle fornisce una rete di sviluppo integrata che può essere avviata con il seguente comando:
+Truffle provides an integrated development network, which you can start with the following command:
 
 ```
 truffle develop
 ```
 
+### Compile Contracts
 
-### Compilare i Contratti
-
-Assicurati che i tuoi contratti Solidity siano compilati:
+Make sure your Solidity contracts are compiled:
 
 ```
 truffle compile
 ```
 
-### Eseguire la Migrazione
+### Run Migration
 
-Distribuisci i tuoi contratti sulla rete di sviluppo locale:
+Deploy your contracts to the local development network:
 
 ```
 truffle migrate --network development
 ```
 
+## Interacting with the Blockchain
 
-## Interazione con la Blockchain
-Puoi utilizzare Truffle Console per interagire con il contratto distribuito. Ecco alcuni esempi di comandi:
+You can use the Truffle Console to interact with the deployed contract. Here are some example commands:
 
-### Aprire Truffle Console
+### Open Truffle Console
 
-Se stai già utilizzando truffle develop, la console sarà aperta automaticamente. In caso contrario, puoi aprire una nuova console:
+If you're already using `truffle develop`, the console will open automatically. Otherwise, you can open a new console with:
 
 ```
 truffle console --network development
 ```
 
-### Ottenere l'Istanza del Contratto
+### Get Contract Instance
 
 ```
 let instance = await TaskDiary.deployed();
 ```
 
-### Creare un Nuovo Task
+### Create a New Task
 
 ```
 await instance.createTask("Complete blockchain project");
 ```
 
-### Recuperare un Task
+### Retrieve a Task
 
 ```
 let task = await instance.tasks(1);
 console.log(task);
 ```
 
-### Spuntare un Task
+### Toggle a Task
 
 ```
 await instance.toggleTask(1);
 ```
 
-### Verificare il Cambiamento di Stato
+### Verify Task State Change
 
 ```
 task = await instance.tasks(1);
