@@ -1,5 +1,5 @@
 # TaskDiary Smart Contract
-This project implements a simple task diary on Ethereum, allowing users to create and manage tasks (marking them as completed or not).
+This project implements an essential task diary on Ethereum, allowing users to create and manage tasks (marking them as completed or not).
 
 ## Requirements
 - Truffle
